@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Charity Manager</title>
+  <link rel="icon" href="/favicon.ico" sizes="16x16" type="image/png">
+  <!-- Latest compiled and minified CSS -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    img {
+      max-width: 100%;
+    }
+
+    .btn-primary {
+      background-color: tomato !important;
+      color: black;
+      border: 1px solid black;
+    }
+
+    a {
+      color: tomato;
+    }
+
+    .footer {
+      background-color: #639;
+      color: #cccccc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .footer a {
+      color: white;
+    }
+
+    .container-body {
+      background: #eee;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    .navbar {
+      background: #444;
+      color: #eee;
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  {{> navbar}}
+<br><br><br><br>
+<div class="container container-body">
+  {{{body}}}
+  <br><br>
+</div>
+<br><br><br><br>
+<br><br>
+
+<div class="footer">
+  <p class="pull-left"><a href="https://jasminehumbert.com">My site</a></p>
+  <p class="pull-right">Based on <a href="https://www.makeschool.com/academy/track/rotten-potatoes---movie-reviews-with-express-js-rge">this tutorial</a>.</p>
+  <br><br>
+</div>
+  <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js">
+    </script>
+    <script type="text/javascript" src="/javascript/scripts.js"></script>
+
+</body>
+</html>
