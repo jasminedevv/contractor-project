@@ -1,0 +1,30 @@
+<form action="#" id="newDonation" method="post">
+  <input type="hidden" value="{{ this._id }}" name="charityId">
+  <fieldset>
+    <legend>Add a donation</legend>
+    <!-- TITLE -->
+    <div class="form-group">
+      <label for="donation-title">Name</label><br>
+      <input class="form-control"
+        id="donation-title"
+        type="text"
+        name="name"
+        placeholder="Name"/>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="form-group">
+      <label for="donation-ammount">Ammount</label><br>
+      <textarea class="form-control"
+      id="donation-ammount"
+      name="content"
+      rows="1"
+      placeholder="$0"/></textarea>
+    </div>
+  </fieldset>
+
+  <!-- BUTTON -->
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Save Donation</button>
+  </div>
+</form>

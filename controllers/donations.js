@@ -1,29 +1,29 @@
 const Donation = require('../models/donation')
 
 module.exports = (app) => {
-// CREATE Comment
-    app.post('/charities/donations', (req, res) => {
-      console.log("incoming request with content:", req.body);
-      Donation.create(req.body).then(donation => {
-        console.log("donation registered with content: "  ,req.body);
-        res.status(200).send({ donation: donation });
-        console.log("I have responded with content: ", donation);
-      }).catch((err) => {
-        res.status(400).send({ err: err })
-      })
+  // CREATE Comment
+  app.post('/charities/donations', (req, res) => {
+    console.log("incoming request with content:", req.body);
+    Donation.create(req.body).then(donation => {
+      console.log("donation registered with content: ", req.body);
+      res.status(200).send({ donation: donation });
+      console.log("I have responded with content: ", donation);
+    }).catch((err) => {
+      res.status(400).send({ err: err })
     })
+  })
 
-    // DELETE
-    app.delete('/charities/donations/:id', function (req, res) {
-        console.log("DELETE donation");
-        Donation.findByIdAndRemove(req.params.id).then((donation) => {
-        res.redirect(`/charities/${donation.charityId}`);
-        }).catch((err) => {
-        console.log(err.message);
-        })
+  // DELETE
+  app.delete('/charities/donations/:id', function (req, res) {
+    console.log("DELETE donation");
+    Donation.findByIdAndRemove(req.params.id).then((donation) => {
+      res.redirect(`/charities/${donation.charityId}`);
+    }).catch((err) => {
+      console.log(err.message);
     })
-  }
+  })
 
+}
 
 // ROPO CODE
 /*

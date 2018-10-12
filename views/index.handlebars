@@ -1,15 +1,13 @@
 <h1>My Charities</h1>
 <br>
 {{#each charities}}
-<div class="col-sm-6">
-  <a href="/charities/{{this.id}}">view detail</a>
+<div class="col-sm-12">
   <h2>{{ this.name }}</h2>
   <p>{{ this.description }}</p>
+  {{> donation-form }}
 </div>
 
-{{> new-donation }}
-
-<div id="comments">
+<div id="donations">
   {{#each donations}}
     {{> donation}}
   {{/each}}

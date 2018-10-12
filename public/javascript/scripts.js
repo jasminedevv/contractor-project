@@ -1,15 +1,16 @@
 // listen for a form submit event
-let el = document.getElementById("newComment");
+let el = document.getElementById("newDonation");
 if (el) {
     var new_donation = {};
     el.addEventListener("submit", (e) => {
+        console.log("Adding event listener to #newDonation")
         // prevent the default form behavior
         // serialize the form data into an object
         e.preventDefault();
         var form = document.getElementById("newDonation");
         console.log("Submitted form looks like this: ", form);
         let raw_donation = $("form").serializeArray();
-        console.log(raw_donation);
+        // console.log(raw_donation);
         $(raw_donation).each(function (index, obj) {
             new_donation[obj.name] = obj.value;
         });
@@ -21,15 +22,16 @@ if (el) {
                 // clear the form
                 form.reset();
                 // add the comment to the page
-                var parentnode = document.getElementById("comments");
+                var parentnode = document.getElementById("donations");
                 console.log(httpResponse.data.comment);
                 $(parentnode).append(`
+                
                 <div class="card" id="${httpResponse.data.comment._id}">
                 <div class="card-block">
-                <h4 class="card-title">${httpResponse.data.comment.title}</h4>
-                <p class="card-text">${httpResponse.data.comment.content}</p>
+                <h4 class="card-title">${httpResponse.data.donation.name}</h4>
+                <p class="card-text">${httpResponse.data.donation.ammount}</p>
                 <p>
-                <button class="btn btn-link" id="deleteDonation-{httpResponse.data.comment._id}" data-comment-id=${httpResponse.data.comment._id}>Delete</button>
+                <button class="btn btn-link" id="deleteDonation-{httpResponse.data.comment._id}" data-comment-id=${httpResponse.data.donation._id}>Delete</button>
                 </p>
                 </div>
                 </div>

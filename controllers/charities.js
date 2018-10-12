@@ -11,7 +11,7 @@ module.exports = (app) => {
     })
 
     // VIEW REVIEWS INDEX
-  app.get('/charities', (req, res) => {
+  app.get('/', (req, res) => {
     console.log("I ran");
       Charity.find( function(err, charities) {
         res.render('index', {charities: charities});
