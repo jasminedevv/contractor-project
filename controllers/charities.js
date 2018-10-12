@@ -1,5 +1,4 @@
 // done
-
 const Charity = require('../models/charity');
 const Donation = require('../models/donation');
 
@@ -7,16 +6,27 @@ module.exports = (app) => {
 
   // VIEW CREATE FORM
   app.get('/charities/new', (req, res) => {
-      res.render('charity-new');
+      res.render('charities-new');
       console.log(req.params.movieId);
     })
 
     // VIEW REVIEWS INDEX
   app.get('/charities', (req, res) => {
+    console.log("I ran");
       Charity.find( function(err, charities) {
         res.render('index', {charities: charities});
       })
     })
+
+  // app.get('/charities', (req, res) => {
+  //   Charity.findById(req.params.id).then((charity) => {
+  //     Donation.find({charityId: req.params.id}).then((donations) => {
+  //       res.render('index', { charity: charity, donations: donations })
+  //     })
+  //   }).catch((err) => {
+  //     console.log(err.message);
+  //   })
+  // })
     
   // EDIT ONE REVIEW
   app.get('/charities/:id/edit', function (req, res) {

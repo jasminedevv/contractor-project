@@ -1,9 +1,17 @@
 <h1>My Charities</h1>
 <br>
 {{#each charities}}
-<div class="col-sm-3">
+<div class="col-sm-6">
   <a href="/charities/{{this.id}}">view detail</a>
   <h2>{{ this.name }}</h2>
   <p>{{ this.description }}</p>
+</div>
+
+{{> new-donation }}
+
+<div id="comments">
+  {{#each donations}}
+    {{> donation}}
+  {{/each}}
 </div>
 {{/each}}

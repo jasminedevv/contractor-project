@@ -1,23 +1,23 @@
 // listen for a form submit event
 let el = document.getElementById("newComment");
 if (el) {
-    var new_comment = {};
+    var new_donation = {};
     el.addEventListener("submit", (e) => {
         // prevent the default form behavior
         // serialize the form data into an object
         e.preventDefault();
-        var form = document.getElementById("newComment");
+        var form = document.getElementById("newDonation");
         console.log("Submitted form looks like this: ", form);
-        let raw_comment = $("form").serializeArray();
-        console.log(raw_comment);
-        $(raw_comment).each(function (index, obj) {
-            new_comment[obj.name] = obj.value;
+        let raw_donation = $("form").serializeArray();
+        console.log(raw_donation);
+        $(raw_donation).each(function (index, obj) {
+            new_donation[obj.name] = obj.value;
         });
         // appends the new comment to the DOM only if it successfully adds a comment to the DB
-        axios.post('/reviews/comments', new_comment)
+        axios.post('/charities/donations', new_donation)
             .then(function (httpResponse) {
                 // wait for the success response from the server
-                console.log("the server has responded with: ", httpResponse);
+                // console.log("the server has responded with: ", httpResponse);
                 // clear the form
                 form.reset();
                 // add the comment to the page
@@ -29,7 +29,7 @@ if (el) {
                 <h4 class="card-title">${httpResponse.data.comment.title}</h4>
                 <p class="card-text">${httpResponse.data.comment.content}</p>
                 <p>
-                <button class="btn btn-link" id="deleteComment-{httpResponse.data.comment._id}" data-comment-id=${httpResponse.data.comment._id}>Delete</button>
+                <button class="btn btn-link" id="deleteDonation-{httpResponse.data.comment._id}" data-comment-id=${httpResponse.data.comment._id}>Delete</button>
                 </p>
                 </div>
                 </div>
@@ -39,8 +39,8 @@ if (el) {
     });
 }
 
-var commentDeleteButtons = document.querySelectorAll('[id^="deleteComment-"]');
-commentDeleteButtons.forEach( (elem) => {
+var donationDeleteButtons = document.querySelectorAll('[id^="deleteDonation-"]');
+donationDeleteButtons.forEach( (elem) => {
     elem.addEventListener('click', (e) => {
         console.log("click!");
         let commentId = elem.getAttribute('data-comment-id');

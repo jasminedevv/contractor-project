@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const mongoose = require('mongoose');
 
 // Connect to the database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes', {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/contractor-project', {useNewUrlParser: true})
 .then(() => {
     console.log("Connected to DB");
 })
@@ -35,8 +35,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes
     throw err;
 })
 
-
-// REVIEWS ROUTE
+// ROUTES
 charities(app);
 donations(app);
 
