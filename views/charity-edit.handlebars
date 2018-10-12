@@ -1,0 +1,13 @@
+<h1>Edit Charity</h1>
+
+<form method="PUT" action="/charities">
+{{> charities-form }}
+ <p>
+    <button class="btn btn-primary" type="submit">save</button>
+  </p>
+
+</form>
+<a href="/charities/{{ charity._id }}/delete">Delete</a>
+{{!-- <form method="DELETE" action="/charities/{{ charity._id }}">
+    <button class="btn btn-primary" type="submit">Delete Charity</button>
+</form> --}}

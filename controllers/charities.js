@@ -30,11 +30,15 @@ module.exports = (app) => {
     
   // EDIT ONE REVIEW
   app.get('/charities/:id/edit', function (req, res) {
-      Charity.findById(req.params.id, function(err, review) {
+      Charity.findById(req.params.id, function(err, charity) {
         res.render('charity-edit', {charity: charity});
       })
     })
     
+    app.get('/charities/', (req, res) => {
+      res.redirect("/");
+    })
+
   // SHOW
   app.get('/charities/:id', (req, res) => {
     Charity.findById(req.params.id).then((charity) => {
@@ -51,7 +55,7 @@ module.exports = (app) => {
     console.log("UPDATE charity")
     Charity.findByIdAndUpdate(req.params.id, req.body)
       .then(charity => {
-        res.redirect(`/charities/${charity._id}`)
+        res.redirect('/');
       })
       .catch(err => {
         console.log(err.message)
@@ -59,7 +63,8 @@ module.exports = (app) => {
   })
     
   // DELETE
-  app.delete('/charities/:id', function (req, res) {
+  // workaround lmaooooo
+  app.get('/charities/:id/delete', function (req, res) {
     console.log("DELETE charity")
     Charity.findByIdAndRemove(req.params.id).then((review) => {
       res.redirect('/');

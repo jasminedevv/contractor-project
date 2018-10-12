@@ -3,6 +3,7 @@
 {{#each charities}}
 <div class="col-sm-12">
   <h2>{{ this.name }}</h2>
+  <a href="/charities/{{ this._id }}/edit">Edit</a>
   <p>{{ this.description }}</p>
   {{> donation-form }}
 </div>

@@ -1,0 +1,12 @@
+<div class="col-sm-12">
+  <h2>{{ charity.name }}</h2>
+  <a href="/charities/{{ charity._id }}/edit">Edit</a>
+  <p>{{ charity.description }}</p>
+  {{> donation-form }}
+</div>
+
+<div id="donations">
+  {{#each donations}}
+    {{> donation}}
+  {{/each}}
+</div>

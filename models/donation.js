@@ -7,6 +7,8 @@ const Donation = mongoose.model('Donation', {
   ammount: Number,
   charityId: { type: Schema.Types.ObjectId, ref: 'Charity' }
 });
+
+module.exports = Donation
 /*
 // ROPO
 const mongoose = require('mongoose')
